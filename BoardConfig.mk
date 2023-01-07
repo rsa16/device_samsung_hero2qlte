@@ -42,21 +42,29 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
 # Kernel
-#TARGET_KERNEL_SOURCE := kernel/samsung/msm8996
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_DEVICE_DEFCONFIG := device_hero2qlte_tmo
-
-TARGET_PREBUILT_KERNEL := $(DEVICE_TREE)/Image.gz
-TARGET_PREBUILT_DTB := $(DEVICE_TREE)/dtb.img
-
-# Boot image
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom androidboot.bootdevice=624000.ufshc androidboot.selinux=permissive user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=24M@0-0xffffffff rcupdate.rcu_expedited=1
 BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.selinux=permissive rcupdate.rcu_expedited=1 cma=32M@0-0xffffffff
 BOARD_KERNEL_PAGESIZE := 4096
-# 000RU = recovery kernel, 000KU = system kernel
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02200000 --tags_offset 0x02000000 --board SRPPA14B001RU
-BOARD_CUSTOM_BOOTIMG_MK :=  $(DEVICE_TREE)/bootimg.mk
+BOARD_RAMDISK_OFFSET := 0x02200000
+BOARD_KERNEL_TAGS_OFFSET := 0x02000000
+BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
+BOARD_KERNEL_IMAGE_NAME := Image
+BOARD_KERNEL_SEPARATED_DT := true
+TARGET_KERNEL_CONFIG := hero2qlteue_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/hero2qlteue
+
+# Kernel - prebuilt
+TARGET_FORCE_PREBUILT_KERNEL := true
+ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+TARGET_PREBUILT_DT := $(DEVICE_PATH)/prebuilt/dt.img
+BOARD_MKBOOTIMG_ARGS += --dt $(TARGET_PREBUILT_DT)
+BOARD_KERNEL_SEPARATED_DT :=
+endif
+
+# Display
+TARGET_SCREEN_DENSITY := 480
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 0x004C00000

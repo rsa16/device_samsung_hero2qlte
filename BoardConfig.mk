@@ -72,8 +72,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := 
-bmc,hero2lteskt,hero2ltektt,hero2ltelgt,hero2ltexx,hero2qlte,hero2qltexx
+TARGET_OTA_ASSERT_DEVICE := bmc,hero2lteskt,hero2ltektt,hero2ltelgt,hero2ltexx,hero2qlte,hero2qltexx
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth

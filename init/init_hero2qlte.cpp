@@ -81,6 +81,14 @@ void vendor_load_properties()
         set_ro_product_prop("model", "SM-G935L");
         set_ro_product_prop("name", "hero2ltelgt");
         gsm_properties("9");
+    } else if (bootloader.find("G935U") == 0) {
+       /* hero2qlte */
+       property_override("ro.build.description", "hero2qlteue-user 8.0.0 R16NW G935UKLU3ETD2 release-keys");
+       set_ro_product_prop("device", "hero2qlteue");
+       set_ro_build_prop("fingerprint", "samsung/hero2qlteue/hero2qlte:8.0.0/R16NW/G935UKLU3ETD2:user/release-keys");
+       set_ro_product_prop("model", "SM-G935U");
+       set_ro_product_prop("name", "hero2qlteue");
+       gsm_properties("9");
     } else {
         gsm_properties("9");
     }

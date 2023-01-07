@@ -3,5 +3,10 @@
         "repository": "device_samsung_universal8890-common",
         "target_path": "device/samsung/universal8890-common",
         "branch": "eleven"
+    },
+    {
+        "repository": "vendor_samsung_hero2qlteue",
+        "target_path": "vendor/samsung/hero2qlteue",
+        "branch": "hero2qlteue-user-8.0.0-R16NW-G935UUESBCTA3-release-keys"
     }
 ]

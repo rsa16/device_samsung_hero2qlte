@@ -72,7 +72,8 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := hero2ltebmc,hero2lteskt,hero2ltektt,hero2ltelgt,hero2ltexx,hero2qlte,hero2qltexx
+TARGET_OTA_ASSERT_DEVICE := 
+bmc,hero2lteskt,hero2ltektt,hero2ltelgt,hero2ltexx,hero2qlte,hero2qltexx
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
@@ -81,7 +82,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 TARGET_SEC_FP_USES_PERCENTAGE_SAMPLES := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_hero2lte
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_hero2qlte
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/universal8890

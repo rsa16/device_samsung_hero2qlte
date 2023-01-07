@@ -104,4 +104,4 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_hero2qlte
 TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_TREE)/init/init_hero2qlte.cpp
 
 # inherit from the proprietary version
-include vendor/samsung/hero2qlte/BoardConfigVendor.mk
+include vendor/samsung/hero2qlteue/BoardConfigVendor.mk

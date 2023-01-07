@@ -28,18 +28,18 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <android-base/logging.h>
-#include <android-base/properties.h>
-
+#include "vendor_init.h"
 #include "property_service.h"
+#include "util.h"
 
 #include "init_universal8890.h"
 
-using android::base::GetProperty;
-
 void vendor_load_properties()
 {
-    std::string bootloader = GetProperty("ro.bootloader", "");
+    char btload[PROP_VALUE_MAX];
+    property_get("ro.bootloader", bootloader);
+   
+    std::string bootloader(btload);
 
     if (bootloader.find("G935F") == 0) {
         /* hero2ltexx */
@@ -93,7 +93,10 @@ void vendor_load_properties()
         gsm_properties("9");
     }
 
-    std::string device = GetProperty("ro.product.device", "");
+    char device_[PROP_VALUE_MAX];
+    property_get("ro.product.device", device_);
+   
+    std::string device(device_);
     LOG(ERROR) << "Found bootloader id " << bootloader <<  " setting build properties for "
         << device <<  " device" << std::endl;
 }

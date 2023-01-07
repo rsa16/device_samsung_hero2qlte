@@ -19,15 +19,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 # Inherit from hero2lte device
-$(call inherit-product, device/samsung/hero2lte/device.mk)
+$(call inherit-product, device/samsung/hero2qlte/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common AOSP stuff.
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := hero2lte
-PRODUCT_NAME := aosp_hero2lte
+PRODUCT_DEVICE := hero2qlte
+PRODUCT_NAME := aosp_hero2qlte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G935F
 PRODUCT_MANUFACTURER := samsung
@@ -36,7 +36,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
 # Use the latest approved GMS identifiers
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=hero2ltexx \
-    PRIVATE_BUILD_DESC="hero2ltexx-user 8.0.0 R16NW G935FXXU2ERD5 release-keys"
+    PRODUCT_NAME=hero2qltexx \
+    PRIVATE_BUILD_DESC="hero2qltexx-user 8.0.0 R16NW G935FXXU2ERD5 release-keys"
 
-BUILD_FINGERPRINT := samsung/hero2ltexx/hero2lte:8.0.0/R16NW/G935FXXU2ERD5:user/release-keys
+BUILD_FINGERPRINT := samsung/hero2qltexx/hero2qlte:8.0.0/R16NW/G935FXXU2ERD5:user/release-keys

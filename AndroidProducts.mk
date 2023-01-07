@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_hero2lte.mk
+    $(LOCAL_DIR)/aosp_hero2qlte.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_hero2lte-user \
-    aosp_hero2lte-userdebug \
-    aosp_hero2lte-eng
+    aosp_hero2qlte-user \
+    aosp_hero2qlte-userdebug \
+    aosp_hero2qlte-eng

@@ -15,9 +15,9 @@
 //
 
 cc_library_static {
-    name: "libinit_hero2lte",
+    name: "libinit_hero2qlte",
     recovery_available: true,
-    srcs: ["init_hero2lte.cpp"],
+    srcs: ["init_hero2qlte.cpp"],
     include_dirs: [
         "device/samsung/universal8890-common/init",
         "system/core/base/include",

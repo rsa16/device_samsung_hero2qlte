@@ -29,7 +29,7 @@ $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 PRODUCT_DEVICE := hero2qlte
 PRODUCT_NAME := aosp_hero2qlte
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-G935F
+PRODUCT_MODEL := SM-G935U
 PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung

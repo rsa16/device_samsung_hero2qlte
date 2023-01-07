@@ -16,10 +16,10 @@
 # inherit from common
 include device/samsung/universal8890-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/samsung/hero2lte
+DEVICE_PATH := device/samsung/hero2qlte
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := hero2ltebmc,hero2lteskt,hero2ltektt,hero2ltelgt,hero2ltexx,hero2lte
+TARGET_OTA_ASSERT_DEVICE := hero2ltebmc,hero2lteskt,hero2ltektt,hero2ltelgt,hero2ltexx,hero2qlte,hero2qltexx
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
@@ -46,4 +46,4 @@ PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 VENDOR_SECURITY_PATCH := 2021-04-01
 
 # inherit from the proprietary version
-include vendor/samsung/hero2lte/BoardConfigVendor.mk
+include vendor/samsung/hero2qlte/BoardConfigVendor.mk

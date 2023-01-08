@@ -7,7 +7,7 @@
 
 set -e
 
-DEVICE=hero2qlte
+DEVICE=hero2qlteue
 VENDOR=samsung
 
 export INITIAL_COPYRIGHT_YEAR=2017

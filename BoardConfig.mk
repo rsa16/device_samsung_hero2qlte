@@ -16,7 +16,12 @@
 # inherit from common
 include device/samsung/universal8890-common/BoardConfigCommon.mk
 
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
 DEVICE_PATH := device/samsung/hero2qlte
+
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_USE_SDCLANG := true
 
 # Bootloader
 TARGET_NO_BOOTLOADER := true
@@ -65,6 +70,8 @@ endif
 
 # Display
 TARGET_SCREEN_DENSITY := 480
+TARGET_USES_GRALLOC1 := true
+TARGET_USES_HWC2 := true
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 0x004C00000

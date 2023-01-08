@@ -1,7 +1,6 @@
 /*
    Copyright (c) 2016, The Linux Foundation. All rights reserved.
    Copyright (c) 2017-2020, The LineageOS Project. All rights reserved.
-
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -14,7 +13,6 @@
     * Neither the name of The Linux Foundation nor the names of its
       contributors may be used to endorse or promote products derived
       from this software without specific prior written permission.
-
    THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
    WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
@@ -28,18 +26,18 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "vendor_init.h"
+#include <android-base/logging.h>
+#include <android-base/properties.h>
+
 #include "property_service.h"
-#include "util.h"
 
 #include "init_universal8890.h"
 
+using android::base::GetProperty;
+
 void vendor_load_properties()
 {
-    char btload[PROP_VALUE_MAX];
-    property_get("ro.bootloader", bootloader);
-   
-    std::string bootloader(btload);
+    std::string bootloader = GetProperty("ro.bootloader", "");
 
     if (bootloader.find("G935F") == 0) {
         /* hero2ltexx */
@@ -81,22 +79,11 @@ void vendor_load_properties()
         set_ro_product_prop("model", "SM-G935L");
         set_ro_product_prop("name", "hero2ltelgt");
         gsm_properties("9");
-    } else if (bootloader.find("G935U") == 0) {
-       /* hero2qlte */
-       property_override("ro.build.description", "hero2qlteue-user 8.0.0 R16NW G935UKLU3ETD2 release-keys");
-       set_ro_product_prop("device", "hero2qlteue");
-       set_ro_build_prop("fingerprint", "samsung/hero2qlteue/hero2qlte:8.0.0/R16NW/G935UKLU3ETD2:user/release-keys");
-       set_ro_product_prop("model", "SM-G935U");
-       set_ro_product_prop("name", "hero2qlteue");
-       gsm_properties("9");
     } else {
         gsm_properties("9");
     }
 
-    char device_[PROP_VALUE_MAX];
-    property_get("ro.product.device", device_);
-   
-    std::string device(device_);
+    std::string device = GetProperty("ro.product.device", "");
     LOG(ERROR) << "Found bootloader id " << bootloader <<  " setting build properties for "
         << device <<  " device" << std::endl;
 }

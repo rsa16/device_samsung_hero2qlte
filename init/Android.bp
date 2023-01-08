@@ -21,6 +21,10 @@ cc_library_static {
     include_dirs: [
         "device/samsung/universal8890-common/init",
         "system/core/init",
+	"system/libbase/include"
+    ],
+    shared_libs: [
+	"libbase",
     ],
     whole_static_libs: ["libinit_helpers_universal8890"]
 }
